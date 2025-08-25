@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-rust-600 to-rust-700 hover:from-rust-700 hover:to-rust-800 text-white shadow-lg hover:shadow-xl focus:ring-rust-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-600 shadow-md hover:shadow-lg focus:ring-gray-500;
+  }
+  
+  .btn-success {
+    @apply bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white shadow-lg hover:shadow-xl focus:ring-green-500;
+  }
+  
+  .btn-danger {
+    @apply bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white shadow-lg hover:shadow-xl focus:ring-red-500;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 backdrop-blur-sm bg-opacity-90 dark:bg-opacity-90 transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .card-header {
+    @apply px-6 py-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-t-xl;
+  }
+  
+  .input {
+    @apply w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg 
+           bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+           focus:ring-2 focus:ring-rust-500 focus:border-transparent
+           placeholder-gray-500 dark:placeholder-gray-400
+           transition-all duration-200 hover:border-gray-400 dark:hover:border-gray-500;
+  }
+  
+  .textarea {
+    @apply input resize-none font-mono text-sm leading-relaxed;
+  }
+  
+  .operation-item {
+    @apply p-4 rounded-lg border cursor-pointer transition-all duration-300
+           border-gray-200 dark:border-gray-700 
+           hover:border-rust-400 hover:shadow-lg hover:scale-[1.02]
+           focus:outline-none focus:ring-2 focus:ring-rust-500 focus:border-transparent;
+  }
+  
+  .operation-item.selected {
+    @apply border-rust-500 bg-gradient-to-r from-rust-50 to-rust-100 dark:from-rust-900/30 dark:to-rust-800/30 shadow-lg scale-[1.02];
+  }
+  
+  .recipe-step {
+    @apply p-3 rounded-lg border border-gray-200 dark:border-gray-700 
+           bg-white dark:bg-gray-800 transition-all duration-300
+           hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600;
+  }
+  
+  .recipe-step.disabled {
+    @apply opacity-50 bg-gray-50 dark:bg-gray-900;
+  }
+  
+  .loading-spinner {
+    @apply animate-spin text-rust-600;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .pulse-success {
+    animation: pulseSuccess 2s ease-in-out;
+  }
+  
+  .glass {
+    @apply backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border border-white/20 dark:border-gray-800/20;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes pulseSuccess {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); 
+  }
+  50% { 
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); 
+  }
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800 rounded-lg;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 dark:bg-gray-600 rounded-lg hover:bg-gray-500 dark:hover:bg-gray-500;
+}
+
+/* Syntax highlighting for JSON */
+.json-key {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.json-string {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.json-number {
+  @apply text-purple-600 dark:text-purple-400;
+}
+
+.json-boolean {
+  @apply text-orange-600 dark:text-orange-400;
+}
